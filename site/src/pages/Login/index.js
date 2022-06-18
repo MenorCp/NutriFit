@@ -8,7 +8,7 @@ import LoadingBar from 'react-top-loading-bar'
 import { useState, useRef } from 'react'
 
 import './index.scss';
-import { Link } from 'react-router-dom';
+
 
 
 export default function IIndex() {
@@ -38,7 +38,7 @@ export default function IIndex() {
 
         setTimeout(( ) => {
             navigate('/adm');
-        }, 3000);
+        }, 1000);
         
         } catch (err) {
             ref.current.complete();

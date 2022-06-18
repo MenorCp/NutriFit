@@ -66,7 +66,6 @@ export default function Index() {
         <main className='page-adm'>
             <header>
                 <p>Bem vindo user7754</p>
-                <Link to='../home' className='home'>HOME</Link>
                 <img src="/assets/images/magnifying-glass-svgrepo-com 1.svg" alt="buscar" className='lupa'/>
             </header>
 
@@ -76,7 +75,7 @@ export default function Index() {
                 <div className='img-planta'></div>
                 
                 <p className='nutrifit-text'>NUTRIFIT</p>
-                    <Link to='../home' className='cadastro'>HOME</Link>
+                    <Link to='../' className='cadastro'>HOME</Link>
                     <Link to='../form' className='cadastro'>Cadastrar</Link>
                     <Link to='../form' className='cadastro'>Consultar</Link>
                         <div className='espaçamento'>

@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { BrowserRouter, Routes ,Route } from 'react-router-dom';
-import App from './App';
 import Cadastro from './pages/Cadastro/index';
 import Home from './pages/Home/index';
 import Form from './pages/Form/index';
@@ -14,7 +13,6 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path='/App' element={<App/>} /> 
         <Route path='/form' element={<Form/>} /> 
         <Route path='/login' element={<Login/>} />
         <Route path='/' element={<Home/>} />
