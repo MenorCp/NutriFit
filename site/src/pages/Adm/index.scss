@@ -23,9 +23,8 @@
     }
 
     .conteudo{
-        min-width: 75.3vw;
-        min-height: 92.5%;
-        background-color: #EDEDED;
+        min-width: 75vw;
+        min-height: 89%;
         padding: 4.7em 0em;
 
         display: flex;
@@ -33,32 +32,6 @@
         justify-content: center;
     }
 
-    .caixa-busca {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        background-color: #fff;
-        padding: 0px 15px;
-        box-shadow: 1px 1px 5px rgb(220, 220, 220);
-        width: 60%;
-        height: 2.5em;
-    }
-    .caixa-busca input {
-        background: none;
-        border: none;
-        padding: 0px;
-        width: 100%;
-        font-size: small;
-        font-family: um;
-    }
-
-    .caixa-busca img{
-        height: 1em;
-        width: auto;
-        cursor: pointer;
-        color: #000000;
-    }
 
     .areacard{
         display: flex;
@@ -76,8 +49,6 @@
         flex-direction: row; 
         justify-content:space-evenly;
         flex-wrap: wrap;
-        height:  100%;
-        background: linear-gradient(180deg, #ECECEC 0%, #F5F5F5 100%);
     }
     
     .Card{
@@ -90,7 +61,7 @@
         height: 11em;
         
         
-        margin-left: 10vh;
+        margin-left: 3vh;
         margin-top: 3.5em;
         padding: 2em;
     }

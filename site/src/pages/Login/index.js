@@ -22,7 +22,7 @@ export default function IIndex() {
     const ref = useRef(); 
 
     useEffect(() => {
-        if(storage('usuario-logado')) {
+        if(storage('usuario')) {
             navigate('/adm');
         }
     }, [])
@@ -34,7 +34,7 @@ export default function IIndex() {
         try { 
 
         const t = await login(email, senha);
-        storage('usuario-logado', t);
+        storage('usuario', t);
 
         setTimeout(( ) => {
             navigate('/adm');

@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 
 import './index.scss';
 
-import { Link } from 'react-router-dom';
 import { removerConsulta, listarConsultas } from '../../api/consultaApi';
 import React, {useEffect, useState} from 'react'
 

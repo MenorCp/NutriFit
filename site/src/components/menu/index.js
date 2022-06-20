@@ -12,7 +12,7 @@ export default function Index() {
     const navigate = useNavigate();
 
     function sairClick() {
-        storage.remove('usuario-logado')
+        storage.remove('usuario')
         navigate('/login');
     }
 
@@ -39,7 +39,7 @@ export default function Index() {
 
             <div className='menu-items-sair'>
                 <div>
-                    <div onClick={sairClick} >Sair</div>
+                    <div onClick={sairClick}>Sair</div>
                 </div>
             </div>
         </nav>

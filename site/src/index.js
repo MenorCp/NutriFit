@@ -16,6 +16,7 @@ root.render(
         <Route path='/login' element={<Login/>} />
         <Route path='/' element={<Home/>} />
         <Route path='/adm' element={<Adm/>} />
+        <Route path='/form/:id' element={<forms/>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

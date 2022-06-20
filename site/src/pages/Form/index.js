@@ -26,6 +26,7 @@ export default function Form() {
     const [genero1, setGenero1] = useState('');
     const [genero, setGenero] = useState('');
     const [habitos, setHabitos] = useState('');
+    const [id, setId] = useState(0); 
 
 
     async function Salvar(){
