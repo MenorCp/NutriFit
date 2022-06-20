@@ -55,3 +55,8 @@ export async function removerConsulta(id){
     return resposta.status;
 }
 
+export async function  buscarPorId(id) {
+    const resposta = await api.get(`/consultar/${id}`);
+    return resposta.data;
+}
+

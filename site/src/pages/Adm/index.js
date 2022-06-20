@@ -14,6 +14,12 @@ export default function Index() {
 
     const [consulta, setConsulta] = useState([]);
 
+    const navigate = useNavigate();
+
+    function editarConsulta(id) {
+        navigate(`/form/consultar/${id}`);
+    }
+
     function calcularIdade(nasc){
         nasc = new Date(nasc);
         let hoje = new Date();
@@ -47,7 +53,6 @@ export default function Index() {
     }, [])
 
     const [usuario, setUsuario] = useState('');
-    const navigate = useNavigate();
 
     function sairClick() {
         storage.remove('usuario-logado')
@@ -80,6 +85,7 @@ export default function Index() {
                                         <div className="aling1">
                                             <div className="agrup1">
                                                 <p>Nome: {item.nome}</p>
+                                                <p>idade: {calcularIdade(item.nascimento)}</p>
                                                 <div className="alturaxpeso">
                                                     <p>altura: {item.altura}</p>
                                                     <p className="peso">Peso: {item.peso}</p>
@@ -91,7 +97,7 @@ export default function Index() {
                                                 <div className="icons">
                                                     <img src="/assets/images/iconmonstr-trash-can-5 1.svg" alt="Remover" onClick={()=>removerConsultaClick(item.id)}/>
                                                     <div className="f"></div>
-                                                    <img src="/assets/images/iconmonstr-pencil-4 2.svg" alt="Editar"/> 
+                                                    <img src="/assets/images/iconmonstr-pencil-4 2.svg" alt="Editar" onClick={()=>editarConsulta(item.id)}/> 
                                                 </div>
                                                 <p>Nº {item.id}</p>
                                             </div>

@@ -13,10 +13,12 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path='/form' element={<Form/>} /> 
+        <Route path='/form/consultar/:idparam' element={<Form/>} />
+
         <Route path='/login' element={<Login/>} />
         <Route path='/' element={<Home/>} />
         <Route path='/adm' element={<Adm/>} />
-        <Route path='/form/:id' element={<forms/>} />
+
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

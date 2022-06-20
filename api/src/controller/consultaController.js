@@ -31,10 +31,13 @@ server.put('/consulta/:id', async (req, resp) => {
         const consulta = req.body;
 
         const b = await alterarConsulta(id, consulta);
-
-        resp.status(204).send();
+        if(b != 1)
+            throw new Error('Consulta não pode ser alterada')
+        else
+            resp.status(204).send();
+            
     }catch(err){
-        resp.status(404).send({
+        resp.status(400).send({
             erro: err.message
         })
     }

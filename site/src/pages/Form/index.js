@@ -1,9 +1,11 @@
-import { useState } from 'react';
-import { cadastrarCliente } from '../../api/consultaApi'
-import storage from 'local-storage';
+import { useEffect, useState } from 'react';
+import { alterarCliente, cadastrarCliente, buscarPorId } from '../../api/consultaApi'
+import storage, { set } from 'local-storage';
 
 import Menu from '../../components/menu'
 import Cabeçalho from '../../components/cabecalho'
+
+import { useParams } from 'react-router-dom';
 
 import './index.scss';
 
@@ -14,7 +16,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default function Form() {
     const [nome, setNome] = useState('');
-    const [email, setemail] = useState('');
+    const [emailpaciente, setemailpaciente] = useState('');
     const [cpf, setCpf] = useState('');
     const [peso, setPeso] = useState('');
     const [idade, setidade] = useState('');
@@ -28,19 +30,68 @@ export default function Form() {
     const [habitos, setHabitos] = useState('');
     const [id, setId] = useState(0); 
 
+    const { idparam } = useParams();
+
+    useEffect(() => {
+        if(!idparam) {
+            carregarConsulta()
+        }
+    }, [])
+
+    async function carregarConsulta() {
+        const resposta = await buscarPorId(idparam);
+        setNome(resposta.nome);
+        setemailpaciente(resposta.emailpaciente);
+        setCpf(resposta.cpf);
+        setPeso(resposta.peso);
+        setidade(resposta.idade);
+        setObjetivo(resposta.objetivo);
+        setEstrategia(resposta.estrategia);
+        setAltura(resposta.altura);
+        setFisico(resposta.fisico);
+        setTelefone(resposta.telefone);
+        setGenero1(resposta.genero1);
+        setGenero(resposta.genero);
+        setHabitos(resposta.habitos);
+        setId(resposta.id)
+    }
 
     async function Salvar(){
         try{
 
             const usuario = storage('usuario-logado').id;
 
-            const r = await cadastrarCliente(nome, email, cpf, peso, objetivo, estrategia, altura, fisico, telefone, genero, habitos, usuario);
+            if(id === 0){
+                const r = await cadastrarCliente(nome, cpf, emailpaciente, peso, objetivo, estrategia, altura, fisico, telefone, genero, habitos, usuario);
 
-            toast('Cliente cadastrado');
+                setId(r.id);
+                toast('Cliente cadastrado com sucesso');
+            }else{
+                await alterarCliente(id, nome, cpf, emailpaciente, peso, objetivo, estrategia, altura, fisico, telefone, genero, habitos, usuario);
+
+                toast('Cliente Alterado com sucesso');
+            }
         }catch(err){
             toast.error(err.message)
         }
 
+    }
+
+    function novoClick() {
+        setId(0);
+        setNome('');
+        setemailpaciente('');
+        setCpf(0);
+        setPeso(0);
+        setidade(0);
+        setObjetivo('');
+        setEstrategia('');
+        setAltura(0);
+        setFisico('');
+        setTelefone('');
+        setGenero1('');
+        setGenero('');
+        setHabitos('');
     }
 
     return(
@@ -74,7 +125,7 @@ export default function Form() {
                             <div className='alinhar-textEinput'>
                                 <div className='text-input'>E-mail</div>
                                 <div className='alinhar-input-email'>
-                                    <input type="text" className='input-email-infoPaciente' name="input email" value={email} onChange={e => setemail(e.target.value)}/>
+                                    <input type="text" className='input-email-infoPaciente' name="input email" value={emailpaciente} onChange={e => setemailpaciente(e.target.value)}/>
                                 </div>
                             </div>
                             
@@ -108,7 +159,7 @@ export default function Form() {
                             <div className='alinhar-textEinput-estrategia'>
                                 <div className='text-input'>Estratégia:</div>
                                 <div className='alinhar-input-estrategia'>  
-                                    <input type="text" className='input-estrategia-planodeNutricao' name="input Estrategia" value={estrategia} onChange={e => setEstrategia(e.target.value)}/>
+                                    <textarea type="text" className='input-estrategia-planodeNutricao' name="input Estrategia" value={estrategia} onChange={e => setEstrategia(e.target.value)}/>
                                 </div>
                             </div>
                         </div>
@@ -157,7 +208,7 @@ export default function Form() {
                             <div className='container2-inputs-planodeNutricao'>
                                 <div className='text-input-habitosAlimentares'>Hábitos Alimentares</div>
                                 <div className='alinhar-input-habitosAlimentares'>
-                                    <input type="text" className='input-habitosAlimentares-planodeNutricao' name="input Habitos Alimentares" value={habitos} onChange={e => setHabitos(e.target.value)}/>
+                                    <textarea type="text" className='input-habitosAlimentares-planodeNutricao' name="input Habitos Alimentares" value={habitos} onChange={e => setHabitos(e.target.value)}/>
                                 </div>
                             </div>
                         </div>
@@ -165,8 +216,8 @@ export default function Form() {
                         <div className='container-planodeNutricao'>
 
                             <div className='alinhar-button-salvar'>
-                                <button onClick={Salvar} className='button'>Salvar</button>
-                                <button onClick={Salvar} className='button'>Alterar</button>
+                                <button onClick={Salvar} className='button'>{id === 0 ? 'Salvar' : 'Alterar'}</button>
+                                <button onClick={novoClick} className='button'>Novo</button>
                             </div>
                         </div>
                 </div>
