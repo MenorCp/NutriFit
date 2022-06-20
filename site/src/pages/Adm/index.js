@@ -1,5 +1,8 @@
 import storage from 'local-storage'
 
+import Menu from '../../components/menu'
+import Cabeçalho from '../../components/cabecalho'
+
 import { useNavigate } from 'react-router-dom';
 
 import './index.scss';
@@ -64,57 +67,46 @@ export default function Index() {
 
     return(
         <main className='page-adm'>
-            <header>
-                <p>Bem vindo user7754</p>
-                <img src="/assets/images/magnifying-glass-svgrepo-com 1.svg" alt="buscar" className='lupa'/>
-            </header>
-
-            <main className='paginareal'>
-
-                <div className="menu">
-                <div className='img-planta'></div>
+            <Menu />
+            <div className='container'>
+                <Cabeçalho />
                 
-                <p className='nutrifit-text'>NUTRIFIT</p>
-                    <Link to='../' className='cadastro'>HOME</Link>
-                    <Link to='../form' className='cadastro'>Cadastrar</Link>
-                    <Link to='../form' className='cadastro'>Consultar</Link>
-                        <div className='espaçamento'>
-                            <div className='div-sair' onClick={sairClick} >Sair</div>
-                        </div>
-                </div>
+                <div className='conteudo'>
 
-                <div className="areacard">
-                    <div className='espaçocards'>
-                    <div className="agrupar2cards">
-                        {consulta.map(item=>
-                            <div className="Card">
-                                <div className="aling1">
-                                    <div className="agrup1">
-                                        <p>Nome: {item.nome}</p>
-                                        <p>idade: {calcularIdade(item.nascimento)}</p>
-                                        <div className="alturaxpeso">
-                                            <p>altura: {item.altura}</p>
-                                            <p className="peso">Peso: {item.peso}</p>
+                    <div className="areacard">
+                        <div className='espaçocards'>
+                            <div className="agrupar2cards">
+                                {consulta.map(item=>
+                                    <div className="Card">
+                                        <div className="aling1">
+                                            <div className="agrup1">
+                                                <p>Nome: {item.nome}</p>
+                                                <p>idade: {calcularIdade(item.nascimento)}</p>
+                                                <div className="alturaxpeso">
+                                                    <p>altura: {item.altura}</p>
+                                                    <p className="peso">Peso: {item.peso}</p>
+                                                </div>
+                                                <p>Objetivo: {item.objetivo}</p>
+                                                <p>Criado: {item.criado.substr(0, 10)}</p>
+                                            </div>
+                                            <div className="agrup2">
+                                                <div className="icons">
+                                                    <img src="/assets/images/iconmonstr-trash-can-5 1.svg" alt="Remover" onClick={()=>removerConsultaClick(item.id)}/>
+                                                    <div className="f"></div>
+                                                    <img src="/assets/images/iconmonstr-pencil-4 2.svg" alt="Editar"/> 
+                                                </div>
+                                                <p>Nº {item.id}</p>
+                                            </div>
                                         </div>
-                                        <p>Objetivo: {item.objetivo}</p>
-                                        <p>Criado: {item.criado.substr(0, 10)}</p>
-                                        <p className="p">Em Processo....</p>
                                     </div>
-                                    <div className="agrup2">
-                                        <div className="icons">
-                                            <img src="/assets/images/iconmonstr-trash-can-5 1.svg" alt="Remover" onClick={()=>removerConsultaClick(item.id)}/>
-                                            <div className="f"></div>
-                                            <img src="/assets/images/iconmonstr-pencil-4 2.svg" alt="Editar"/> 
-                                        </div>
-                                        <p>Nº {item.id}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        )}
-                    </div>    
+                                )}
+                            </div>    
+                        </div>
                     </div>
+
+           
                 </div>
-            </main>
+            </div>
         </main>
     )
 }
