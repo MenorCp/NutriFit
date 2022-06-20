@@ -81,7 +81,6 @@ export default function Index() {
                                         <div className="aling1">
                                             <div className="agrup1">
                                                 <p>Nome: {item.nome}</p>
-                                                <p>idade: {calcularIdade(item.nascimento)}</p>
                                                 <div className="alturaxpeso">
                                                     <p>altura: {item.altura}</p>
                                                     <p className="peso">Peso: {item.peso}</p>
