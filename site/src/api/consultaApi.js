@@ -29,6 +29,11 @@ export async function listarConsultas(){
     return resposta.data;
 }
 
+export async function  buscarPorNome(nome) {
+    const resposta = await api.get(`/consultar/busca?nome=${nome}`);
+    return resposta.data;
+}
+
 export async function alterarCliente(id, nome, emailpaciente, cpf, peso, objetivo, estrategia, altura, fisico, telefone, genero, habitos, nascimento, usuario){
     const resposta = await api.put(`/consulta/${id}`, {
         nome: nome,

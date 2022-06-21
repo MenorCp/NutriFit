@@ -39,30 +39,19 @@
     }
 
     .container {
+        display: flex;
+        flex-direction: column;
         flex-grow: 1;
     }
 
     .conteudo{
-        min-width: 75vw;
-        min-height: 89%;
-        padding: 4.7em 0em;
 
         display: flex;
-
-        justify-content: center;
+        flex-direction: column;
         
-    }
-
-
-    .areacard{
-        display: flex;
-        flex-direction: row;
-         
-    }
-
-    .espaçocards{
-        margin-right: 20px;
-        margin-top: 30px;
+        padding: 20px 60px;
+        flex-grow: 1;
+        
     }
     
     .agrupar2cards{
@@ -130,4 +119,30 @@
     .p{
         color: #ADFDB4;
     } 
+
+    .caixa-busca {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        background-color: #fff;
+        padding: 20px 10px;
+        box-shadow: 1px 1px 5px rgb(220, 220, 220);
+        width: 60%;
+        height: 3em;
+        margin-top: 30px;
+        margin-left: 23px;
+    }
+    .caixa-busca input {
+        background: none;
+        border: none;
+        border-radius: 0%;
+        padding: 0px;
+        width: 100%;
+    }
+    .caixa-busca img {
+        cursor: pointer;
+        position: relative;
+        right: -15px;
+    }
 }

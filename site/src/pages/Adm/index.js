@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 import './index.scss';
 
-import { removerConsulta, listarConsultas } from '../../api/consultaApi';
+import { removerConsulta, listarConsultas, buscarPorNome } from '../../api/consultaApi';
 import {confirmAlert} from 'react-confirm-alert'
 
 import React, {useEffect, useState} from 'react'
@@ -15,6 +15,7 @@ import React, {useEffect, useState} from 'react'
 export default function Index() {
 
     const [consulta, setConsulta] = useState([]);
+    const [filtro, setFiltro] = useState('');
 
     const navigate = useNavigate();
 
@@ -54,13 +55,17 @@ export default function Index() {
             ]
          }) 
     }
+
+    async function filtrar() {
+        const resposta = await buscarPorNome(filtro);
+        console.log(resposta);
+        setConsulta(resposta);
+    }
     
     async function listarTodasConsultas(){
         const resposta = await listarConsultas();
-        console.log(resposta);
         setConsulta(resposta) 
     }
-
     
     useEffect(() => {
         listarTodasConsultas()
@@ -91,6 +96,11 @@ export default function Index() {
                 <Cabeçalho />
                 
                 <div className='conteudo'>
+
+                    <div className='caixa-busca'>
+                        <input type="text" placeholder='Buscar por nome' value={filtro} onChange={e => setFiltro(e.target.value)}/>
+                        <img src='/assets/images/icon-buscar.svg' alt='buscar' onClick={filtrar} />
+                    </div>
 
                     <div className="areacard">
                         <div className='espaçocards'>
