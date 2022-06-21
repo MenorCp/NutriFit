@@ -5,7 +5,8 @@ import storage, { set } from 'local-storage';
 import Menu from '../../components/menu'
 import Cabeçalho from '../../components/cabecalho'
 
-import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom'
+
 
 import './index.scss';
 
@@ -33,7 +34,7 @@ export default function Form() {
     const { idparam } = useParams();
 
     useEffect(() => {
-        if(!idparam) {
+        if(idparam) {
             carregarConsulta()
         }
     }, [])
@@ -59,7 +60,7 @@ export default function Form() {
     async function Salvar(){
         try{
 
-            const usuario = storage('usuario-logado').id;
+            const usuario = storage('usuario').id;
 
             if(id === 0){
                 const r = await cadastrarCliente(nome, cpf, emailpaciente, peso, objetivo, estrategia, altura, fisico, telefone, genero, habitos, usuario);

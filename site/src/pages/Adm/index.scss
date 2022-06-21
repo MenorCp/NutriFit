@@ -16,6 +16,22 @@
     font-family: 'um';
     color:#000000;
 
+    .delete{
+        cursor: pointer;
+    }
+    .alterar{
+        cursor: pointer;
+    }
+    .alterar:hover{
+        width: 27px;
+        height: 27px;
+        margin: 0px;
+    }
+    .delete:hover{
+        width: 26px;
+        height: 26px;
+        margin: 0px;
+    }
     .seila {
         display: flex;
         flex-direction: column;

@@ -55,15 +55,15 @@ export default function Index() {
     const [usuario, setUsuario] = useState('');
 
     function sairClick() {
-        storage.remove('usuario-logado')
+        storage.remove('usuario')
         navigate('/login');
     }
 
     useEffect(() => {
-        if(!storage('usuario-logado')) {
+        if(!storage('usuario')) {
             navigate('/login');
         } else {
-            const usuarioLogado = storage('usuario-logado');
+            const usuarioLogado = storage('usuario');
             setUsuario(usuarioLogado.nome);
         }
         
@@ -95,9 +95,9 @@ export default function Index() {
                                             </div>
                                             <div className="agrup2">
                                                 <div className="icons">
-                                                    <img src="/assets/images/iconmonstr-trash-can-5 1.svg" alt="Remover" onClick={()=>removerConsultaClick(item.id)}/>
+                                                    <img src="/assets/images/iconmonstr-trash-can-5 1.svg" className='delete' alt="Remover" onClick={()=>removerConsultaClick(item.id)}/>
                                                     <div className="f"></div>
-                                                    <img src="/assets/images/iconmonstr-pencil-4 2.svg" alt="Editar" onClick={()=>editarConsulta(item.id)}/> 
+                                                    <img src="/assets/images/iconmonstr-pencil-4 2.svg" className='alterar' alt="Editar" onClick={()=>editarConsulta(item.id)}/> 
                                                 </div>
                                                 <p>Nº {item.id}</p>
                                             </div>
