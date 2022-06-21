@@ -6,6 +6,7 @@ import Home from './pages/Home/index';
 import Form from './pages/Form/index';
 import Adm from './pages/Adm/index';
 import Login from './pages/Login/index';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

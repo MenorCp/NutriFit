@@ -8,6 +8,8 @@ import { useNavigate } from 'react-router-dom';
 import './index.scss';
 
 import { removerConsulta, listarConsultas } from '../../api/consultaApi';
+import {confirmAlert} from 'react-confirm-alert'
+
 import React, {useEffect, useState} from 'react'
 
 export default function Index() {
@@ -34,10 +36,23 @@ export default function Index() {
 
 
     async function removerConsultaClick(id){
-        const resposta = await removerConsulta(id);
-        alert('Consulta removido')
-
-        listarTodasConsultas();
+         confirmAlert({
+            title:"Remover Consulta",
+            message: `Quer mesmo Apagar a Consulta ${id} ? `,
+            buttons:[
+                {
+                    label:"Sim",
+                    onClick: async()=>{
+                        const resposta = await removerConsulta(id);
+                            alert('Consulta Removida com Sucesso')
+                        listarTodasConsultas();
+                    }
+                },
+                {
+                    label:"Não"
+                }
+            ]
+         }) 
     }
     
     async function listarTodasConsultas(){
@@ -85,9 +100,9 @@ export default function Index() {
                                         <div className="aling1">
                                             <div className="agrup1">
                                                 <p>Nome: {item.nome}</p>
-                                                <p>idade: {calcularIdade(item.nascimento)}</p>
+                                                <p>Idade: {calcularIdade(item.nascimento)}</p>
                                                 <div className="alturaxpeso">
-                                                    <p>altura: {item.altura}</p>
+                                                    <p>Altura: {item.altura}</p>
                                                     <p className="peso">Peso: {item.peso}</p>
                                                 </div>
                                                 <p>Objetivo: {item.objetivo}</p>
