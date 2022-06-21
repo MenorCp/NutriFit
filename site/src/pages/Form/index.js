@@ -30,6 +30,9 @@ export default function Form() {
     const [genero, setGenero] = useState('');
     const [habitos, setHabitos] = useState('');
     
+    console.log(nascimento);
+
+
     const [id, setId] = useState(0); 
 
     const { idparam } = useParams();

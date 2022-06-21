@@ -6,11 +6,11 @@ import { con } from "./connection.js";
 
 export async function inserirConsulta(consulta) {
     const comando = `
-    INSERT INTO tb_consulta (nm_nome, ds_cpf, dt_nascimento, ds_emailpaciente, ds_contato, ds_genero, vl_altura, vl_peso, ds_fisico, ds_objetivo, ds_habitos, ds_estrategia, dt_nascimento, dt_criacao)
-    VALUES                  ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, sysdate());
+    INSERT INTO tb_consulta (nm_nome, ds_cpf, dt_nascimento, ds_emailpaciente, ds_contato, ds_genero, vl_altura, vl_peso, ds_fisico, ds_objetivo, ds_habitos, ds_estrategia, dt_criacao)
+    VALUES                  ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, sysdate());
     `
 
-    const [resposta] = await con.query(comando, [consulta.nome, consulta.cpf, consulta.nascimento, consulta.emailpaciente, consulta.contato, consulta.genero, consulta.altura, consulta.peso, consulta.fisico, consulta.objetivo, consulta.habitos, consulta.estrategia, consulta.nascimento]);
+    const [resposta] = await con.query(comando, [consulta.nome, consulta.cpf, consulta.nascimento, consulta.emailpaciente, consulta.contato, consulta.genero, consulta.altura, consulta.peso, consulta.fisico, consulta.objetivo, consulta.habitos, consulta.estrategia]);
     consulta.id = resposta.insertId
 
     return resposta[0];

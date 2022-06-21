@@ -16,8 +16,48 @@ server.post('/consulta', async (req, resp) => {
         if (!a.nome.trim())
             throw new Error('Nome obrigatório')
 
+        if(!a.emailpaciente.trim()) 
+            throw new Error('Email obrigatório')
+
+        if(!a.cpf.trim()) 
+            throw new Error('CPF obrigatório')
+        
+        if(!a.nascimento) 
+            throw new Error('Nascimento obrigatório')
+
+            if(!a.contato.trim()) 
+            throw   new Error('Contato obrigatório')
+
+            if(!a.genero) 
+            throw   new Error('Genero obrigatório')
+
+            if(!a.altura.trim()) 
+            throw   new Error('Altura obrigatório')
+
+        
+            if(!a.peso.trim()) 
+            throw   new Error('Peso obrigatório')
+
+            if(!a.peso || isNaN(a.peso))
+                throw new Error('Peso precisa ser em numeros')
+
+                if(!a.fisico.trim()) 
+                throw   new Error('Fisico obrigatório')
+
+                if(!a.habitos.trim()) 
+                throw   new Error('Hábitos obrigatório')
+
+                if(!a.estrategia.trim()) 
+                throw   new Error('Estratégia obrigatório')
+
+                if(!a.nascimento.trim()) 
+                throw   new Error('Nascimento obrigatório')
+
+
         if (!a.altura || isNaN(a.altura))
             throw new Error('Altura inválida')
+
+        
 
         const c = await inserirConsulta(a);
 
