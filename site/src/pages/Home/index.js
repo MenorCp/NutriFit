@@ -27,26 +27,26 @@ export default function home() {
                         Primeiro mude sua alimentação  e depois a alimentação mudará você
                         </p>
                         <p className='text2-f2'>
-                            Cada paciente tem sua história, seu tempo disponível e seus gostos <br/> alimentares,<br/>
-                            assim, a estratégia da consultoria nutricional é 100% personalizada,<br/>
-                            não trabalhamos complanos alimentares "pré-prontos" na consulta, o <br/> cardápio é feito para 
+                            Cada paciente tem sua história, seu tempo disponível e seus gostos  alimentares,
+                            assim, a estratégia da consultoria nutricional é 100% personalizada,
+                            não trabalhamos complanos alimentares "pré-prontos" na consulta, o cardápio é feito para 
                             cada paciente!
                         </p>
                         <p className='text3-f2'>
-                        Quem disse que dieta não pode ser gostosa de seguir?<br/>
-                        Realizamos cardápios saudáveis e atrativos nos planos nutricionais,<br/>
-                        de olho nas metas corporais dos pacientes (exemplo, os que procuram<br/>
-                        nutricionista para emagrecer ou adeptos<br/>
-                        de musculação para ganho de massa magra).
-                        </p>
+                            Quem disse que dieta não pode ser gostosa de seguir?
+                            Realizamos cardápios saudáveis e atrativos nos planos nutricionais,
+                            de olho nas metas corporais dos pacientes (exemplo, os que procuram
+                            nutricionista para emagrecer ou adeptos
+                            de musculação para ganho de massa magra).
+                            </p>
 
                     </div>
                 </div>
                 <div className='cont-main-faixa3'>
                     <div className='cont-f3'>
                         <p className='text-f3'>
-                        A alimentação adequada e saudável é a <br/> chave para a longevidade.<br/>
-                        Por isso, desenhamos o plano de<br/> Reeducação Alimentar conforme suas<br/> necessidades nutricionais e respeitando <br/> suas preferências alimentares.
+                        A alimentação adequada e saudável é a  chave para a longevidade.
+                        Por isso, desenhamos o plano de Reeducação Alimentar conforme suas necessidades nutricionais e respeitando suas preferências alimentares.
                         </p>
                     </div>
                     <div className='cont2-f3'>
@@ -57,48 +57,48 @@ export default function home() {
                     <div className='cont-f4'>
                         <div className='img-f4'></div>
                         <p className='text-f4'>
-                        A alimentação adequada e <br/>
-                        saudável é a chave para a<br/>
-                        longevidade.<br/>
-                        Por isso, desenhamos o<br/>
-                        plano de Reeducação <br/>
-                        Alimentar conforme suas <br/>
-                        necessidades nutricionais e<br/>
-                        respeitando suas <br/>
+                        A alimentação adequada e 
+                        saudável é a chave para a
+                        longevidade.
+                        Por isso, desenhamos o
+                        plano de Reeducação 
+                        Alimentar conforme suas 
+                        necessidades nutricionais e
+                        respeitando suas
                         preferências alimentares.
                         </p>
                         <div className='img2-f4'></div>
                         <p className='text2-f4'>
-                        Sou nutricionista formada <br/>
-                        desde 2011. Pós-graduada em  <br/>
-                        Nutrição Clínica com <br/>
-                        Especialização em Nutrição<br/>
-                        Esportiva, Funcional <br/>
-                        e Emagrecimento.“Coach de<br/> 
+                        Sou nutricionista formada 
+                        desde 2011. Pós-graduada em 
+                        Nutrição Clínica como
+                        Especialização em Nutrição
+                        Esportiva, Funcional 
+                        e Emagrecimento.“Coach de 
                         Emagrecimento”.
                         </p>
                     </div>
                     <div className='cont2-f4'>
                         <p className='text3-f4'>
-                        Através do exame de <br/> 
-                        bioimpedância e avaliação <br/> 
-                        física, traçaremos o plano <br/> 
-                        alimentar para atingir os <br/>
-                        níveis de gordura corporal e <br/>
-                        de massa muscular <br/>
-                        adequados para sua saúde e <br/> 
+                        Através do exame de 
+                        bioimpedância e avaliação 
+                        física, traçaremos o plano 
+                        alimentar para atingir os 
+                        níveis de gordura corporal e 
+                        de massa muscular 
+                        adequados para sua saúde e 
                         autoestima.
                         </p>
                         <div className='img3-f4'></div>
                         <p className='text4-f4'>
-                        Comer saudável pode <br/> 
-                        prevenir e tratar doenças. A <br/>
-                        falta ou excesso de nutrientes <br/> 
-                        podem levar a um <br/> 
-                        desequilíbrio causando <br/> 
-                        problemas de saúde como <br/> 
-                        hipertensão, diabetes e <br/>
-                        outros. Ajustamos sua <br/> 
+                        Comer saudável pode 
+                        prevenir e tratar doenças. A 
+                        falta ou excesso de nutrientes 
+                        podem levar a um 
+                        desequilíbrio causando 
+                        problemas de saúde como 
+                        hipertensão, diabetes e 
+                        outros. Ajustamos sua 
                         alimentação com saúde.
                         </p>
                         <div className='img4-f4'></div>
@@ -110,12 +110,12 @@ export default function home() {
                             Missão
                         </h1>
                         <p className='text-cont1'>
-                        Aumentar a saúde e o bem estar dos <br/> 
-                        pacientes através de uma orientação <br/> 
-                        nutricional personalizada.<br/>
-                        Entregar um serviço que possibilite <br/> 
-                        alcançar suas metas e objetivos, <br/> 
-                        transformando seu corpo e sua<br/>  
+                        Aumentar a saúde e o bem estar dos 
+                        pacientes através de uma orientação  
+                        nutricional personalizada.
+                        Entregar um serviço que possibilite 
+                        alcançar suas metas e objetivos, 
+                        transformando seu corpo e sua  
                         autoestima.
                         </p>
                     </div>
@@ -141,14 +141,14 @@ export default function home() {
                             Contato
                         </h1>
                         <p id='botom' className='text-cont3'>
-                        Email:<br/> 
-                        consulta@nutrifit.com.br<br/> 
+                        Email:
+                        consulta@nutrifit.com.br
                         Telefone:(11) 9-9801-0101
                         </p>
                         <p className='text2-cont3'>
-                        Endereço:<br/> 
-                        Avenida Dr. Cardoso de Mello, 1666, 1º<br/> 
-                        Andar, Vila Olímpia, <br/> 
+                        Endereço:
+                        Avenida Dr. Cardoso de Mello, 1666, 1º
+                        Andar, Vila Olímpia, 
                         São Paulo – SP.CEP: 04548-000.
                         </p>
                         <div className='cont-c3-rodape'>
