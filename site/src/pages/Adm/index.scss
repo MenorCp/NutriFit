@@ -38,6 +38,10 @@
         flex-grow: 1;
     }
 
+    .container {
+        flex-grow: 1;
+    }
+
     .conteudo{
         min-width: 75vw;
         min-height: 89%;
@@ -46,6 +50,7 @@
         display: flex;
 
         justify-content: center;
+        
     }
 
 
@@ -63,7 +68,7 @@
     .agrupar2cards{
         display: flex;
         flex-direction: row; 
-        justify-content:space-evenly;
+        justify-content:flex-start;
         flex-wrap: wrap;
     }
     

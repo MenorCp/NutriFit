@@ -6,11 +6,11 @@ import { con } from "./connection.js";
 
 export async function inserirConsulta(consulta) {
     const comando = `
-    INSERT INTO tb_consulta (nm_nome, ds_cpf, dt_nascimento, ds_emailpaciente, ds_contato, ds_genero, vl_altura, vl_peso, ds_fisico, ds_objetivo, ds_habitos, ds_estrategia, dt_criacao)
-    VALUES                  ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, sysdate());
+    INSERT INTO tb_consulta (nm_nome, ds_cpf, dt_nascimento, ds_emailpaciente, ds_contato, ds_genero, vl_altura, vl_peso, ds_fisico, ds_objetivo, ds_habitos, ds_estrategia, dt_nascimento, dt_criacao)
+    VALUES                  ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, sysdate());
     `
 
-    const [resposta] = await con.query(comando, [consulta.nome, consulta.cpf, consulta.nascimento, consulta.email, consulta.contato, consulta.genero, consulta.altura, consulta.peso, consulta.fisico, consulta.objetivo, consulta.habitos, consulta.estrategia, consulta.criacao]);
+    const [resposta] = await con.query(comando, [consulta.nome, consulta.cpf, consulta.nascimento, consulta.emailpaciente, consulta.contato, consulta.genero, consulta.altura, consulta.peso, consulta.fisico, consulta.objetivo, consulta.habitos, consulta.estrategia, consulta.nascimento]);
     consulta.id = resposta.insertId
 
     return resposta[0];
@@ -33,12 +33,11 @@ export async function alterarConsulta(id, consulta){
         ds_fisico           =?,
         ds_objetivo         =?,
         ds_habitos          =?,
-        ds_estrategia       =?,
-        dt_criacao          =?
+        ds_estrategia       =?
      WHERE id_consulta      =?
     `
 
-    const [resp] = await con.query(comando, [consulta.nome, consulta.cpf, consulta.nascimento, consulta.email, consulta.contato, consulta.genero, consulta.altura, consulta.peso, consulta.fisico, consulta.objetivo, consulta.formularios, consulta.estrategia, consulta.criacao, id]);
+    const [resp] = await con.query(comando, [consulta.nome, consulta.cpf, consulta.nascimento, consulta.emailpaciente, consulta.contato, consulta.genero, consulta.altura, consulta.peso, consulta.fisico, consulta.objetivo, consulta.habitos, consulta.estrategia, id]);
     return resp.affectedRows;
 }
 
@@ -71,15 +70,19 @@ export async function listarConsultas(){
 export async function listarConsultasid(id){
     const comando = `
     SELECT id_consulta          id,
-           nm_nome              nome,
-           ds_cpf               cpf,
-           dt_nascimento        nascimento,
-           ds_emailpaciente     emailpaciente,
-           ds_contato           contato,
-           ds_genero            genero,
-           vl_altura            altura,
-           vl_peso              peso,
-           ds_fisico            fisico
+            nm_nome                 nome,
+            ds_cpf                  cpf,
+            dt_nascimento           nascimento,
+            ds_emailpaciente        emailpaciente,
+            ds_contato              contato,
+            ds_genero               genero,
+            vl_altura               altura,
+            vl_peso                 peso,
+            ds_fisico               fisico,
+            ds_objetivo             objetivo,
+            ds_habitos              habitos,
+            ds_estrategia          estrategia,
+            dt_criacao             criacao
       FROM tb_consulta
      WHERE id_consulta          =?`;
 
@@ -93,15 +96,19 @@ export async function listarConsultasid(id){
 export async function listarConsultasnome(nome){
     const comando = `
     SELECT id_consulta          id,
-           nm_nome              nome,
-           ds_cpf               cpf,
-           dt_nascimento        nascimento,
-           ds_emailpaciente     emailpaciente,
-           ds_contato           contato,
-           ds_genero            genero,
-           vl_altura            altura,
-           vl_peso              peso,
-           ds_fisico            fisico
+            nm_nome                 nome,
+            ds_cpf                  cpf,
+            dt_nascimento           nascimento,
+            ds_emailpaciente        emailpaciente,
+            ds_contato              contato,
+            ds_genero               genero,
+            vl_altura               altura,
+            vl_peso                 peso,
+            ds_fisico               fisico,
+            ds_objetivo             objetivo,
+            ds_habitos              habitos,
+            ds_estrategia          estrategia,
+            dt_criacao             criacao
       FROM tb_consulta
      WHERE nm_nome              like ?`;
 
@@ -139,7 +146,7 @@ export async function buscarCpf(cpf){
        ds_fisico               fisico,
        ds_objetivo             objetivo,
        ds_habitos              habitos,
-       ds_estrategia          estrategi,
+       ds_estrategia          estrategia,
        dt_criacao             criacao
        FROM tb_consulta
        WHERE ds_cpf           	like ?;

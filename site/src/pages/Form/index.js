@@ -20,7 +20,7 @@ export default function Form() {
     const [emailpaciente, setemailpaciente] = useState('');
     const [cpf, setCpf] = useState('');
     const [peso, setPeso] = useState('');
-    const [idade, setidade] = useState('');
+    const [nascimento, setNascimento] = useState('');
     const [objetivo, setObjetivo] = useState('');
     const [estrategia, setEstrategia] = useState('');
     const [altura, setAltura] = useState('');
@@ -29,6 +29,7 @@ export default function Form() {
     const [genero1, setGenero1] = useState('');
     const [genero, setGenero] = useState('');
     const [habitos, setHabitos] = useState('');
+    
     const [id, setId] = useState(0); 
 
     const { idparam } = useParams();
@@ -41,18 +42,29 @@ export default function Form() {
 
     async function carregarConsulta() {
         const resposta = await buscarPorId(idparam);
+
+        console.log(resposta);
+
         setNome(resposta.nome);
         setemailpaciente(resposta.emailpaciente);
         setCpf(resposta.cpf);
         setPeso(resposta.peso);
-        setidade(resposta.idade);
+        setNascimento(resposta.nascimento.substr(0, 10));
         setObjetivo(resposta.objetivo);
         setEstrategia(resposta.estrategia);
         setAltura(resposta.altura);
         setFisico(resposta.fisico);
-        setTelefone(resposta.telefone);
-        setGenero1(resposta.genero1);
-        setGenero(resposta.genero);
+        setTelefone(resposta.contato);
+        
+        if (resposta.genero == 'Masculino') {
+            setGenero1(true);
+            setGenero(false);
+        } 
+        else {
+            setGenero1(false);
+            setGenero(true);
+        }
+
         setHabitos(resposta.habitos);
         setId(resposta.id)
     }
@@ -63,17 +75,17 @@ export default function Form() {
             const usuario = storage('usuario').id;
 
             if(id === 0){
-                const r = await cadastrarCliente(nome, cpf, emailpaciente, peso, objetivo, estrategia, altura, fisico, telefone, genero, habitos, usuario);
+                const r = await cadastrarCliente(nome, emailpaciente, cpf, peso, objetivo, estrategia, altura, fisico, telefone, genero, habitos, nascimento ,usuario);
 
                 setId(r.id);
                 toast('Cliente cadastrado com sucesso');
             }else{
-                await alterarCliente(id, nome, cpf, emailpaciente, peso, objetivo, estrategia, altura, fisico, telefone, genero, habitos, usuario);
+                await alterarCliente(id, nome, emailpaciente, cpf, peso, objetivo, estrategia, altura, fisico, telefone, genero, habitos, nascimento, usuario);
 
                 toast('Cliente Alterado com sucesso');
             }
         }catch(err){
-            toast.error(err.message)
+            toast.error(err.response.data.erro)
         }
 
     }
@@ -84,7 +96,7 @@ export default function Form() {
         setemailpaciente('');
         setCpf(0);
         setPeso(0);
-        setidade(0);
+        setNascimento(0);
         setObjetivo('');
         setEstrategia('');
         setAltura(0);
@@ -145,9 +157,9 @@ export default function Form() {
                             </div>
 
                             <div className='alinhar-textEinput'>
-                                <div className='text-input'>Idade</div>
+                                <div className='text-input'>Nascimento</div>
                                 <div className='alinhar-input-peso'>
-                                    <input type="text" className='input-peso-infoPaciente' name="input peso" value={idade} onChange={e => setidade(e.target.value)}/>
+                                    <input type="date" className='input-peso-infoPaciente' name="input peso" value={nascimento} onChange={e => setNascimento(e.target.value)}/>
                                 </div>
                             </div>
 

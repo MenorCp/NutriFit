@@ -11,6 +11,14 @@ server.post('/consulta', async (req, resp) => {
     try{
         const a = req.body;
 
+        console.log(a);
+
+        if (!a.nome.trim())
+            throw new Error('Nome obrigatório')
+
+        if (!a.altura || isNaN(a.altura))
+            throw new Error('Altura inválida')
+
         const c = await inserirConsulta(a);
 
         resp.send(c)
@@ -29,6 +37,8 @@ server.put('/consulta/:id', async (req, resp) => {
     try{
         const { id } = req.params;
         const consulta = req.body;
+
+        console.log(consulta);
 
         const b = await alterarConsulta(id, consulta);
         if(b != 1)

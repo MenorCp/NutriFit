@@ -10,7 +10,7 @@
 .comp-menu {
     position: relative;
     z-index: 10;
-    width: 320px;
+    width: 220px;
     height: 100vh;
     padding-bottom: 50px;
     background-color: #5D5F5D;
@@ -58,7 +58,7 @@
         background-repeat: no-repeat;
         height: 93px;
         width: 100px;
-        margin-left: 150px;
+        margin-left: 100px;
         cursor: pointer;
         text-align: center;
         margin-top: -15px
@@ -67,7 +67,7 @@
     .nutrifit-text{
         @import url('https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@400;800&display=swap');
         font-family: 'Yatra One', sans-serif;
-        font-size: 40px;
+        font-size: 30px;
         font-weight:800;
         text-shadow: black 0em 0.1em 0.4em;
         color: white;

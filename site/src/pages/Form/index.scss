@@ -15,6 +15,12 @@
     font-family: 'um';
     color:#000000;
 
+    .container1-cards {
+        flex-grow: 1;
+    }
+
+    
+
     input {
         border: none;
         border-radius: 3px;
@@ -29,6 +35,7 @@
         background-color: #ffffff; 
         box-shadow: 0px 2px #b3b3b3; 
         font-size: small;
+        width: 15em;
     }
 
     .aling{
@@ -58,6 +65,14 @@
         align-items: center;
         margin-bottom: 2em;
         justify-content: space-between;
+
+        
+    }
+
+    .text-input {
+        width: 5em;
+        text-align: right;
+        margin-right: 1em;
     }
 
     .alinhar-textEinputs-genero {
@@ -98,10 +113,11 @@
 
     .input-estrategia-planodeNutricao {
         height: 7em;
+        width: 27em;
     }
 
     .input-habitosAlimentares-planodeNutricao {
-        width: 25em;
+        width: 33em;
         height: 10.5em;  
     }
     .button{

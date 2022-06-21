@@ -3,7 +3,7 @@ const api = axios.create({
     baseURL: 'http://localhost:5001'
 })
 
-export async function cadastrarCliente(nome, emailpaciente, cpf, peso, objetivo, estrategia, altura, fisico, telefone, genero, habitos, criacao, nascimento, usuario){
+export async function cadastrarCliente(nome, emailpaciente, cpf, peso, objetivo, estrategia, altura, fisico, telefone, genero, habitos, nascimento, usuario){
     const resposta = await api.post('/consulta', {
         nome: nome,
         cpf: cpf,
@@ -29,7 +29,7 @@ export async function listarConsultas(){
     return resposta.data;
 }
 
-export async function alterarCliente(id, nome, emailpaciente, cpf, peso, objetivo, estrategia, altura, fisico, telefone, genero, habitos, criacao, nascimento, usuario){
+export async function alterarCliente(id, nome, emailpaciente, cpf, peso, objetivo, estrategia, altura, fisico, telefone, genero, habitos, nascimento, usuario){
     const resposta = await api.put(`/consulta/${id}`, {
         nome: nome,
         cpf: cpf,
